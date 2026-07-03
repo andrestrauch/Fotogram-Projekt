@@ -4,6 +4,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    background-color: red;
+    position: relative;
 }
 
 header {
@@ -36,5 +39,51 @@ header {
             width: 41px;
             height: 39px;
         }
+    }
+}
+main {
+    width: 100%;
+    max-width: 1440px;
+    height: 76dvh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+}
+footer {
+    /* position: absolute; */
+    bottom: o;
+
+    height: 128px;
+    width: 100%;
+
+    background-color: rgba(9, 33, 42, 1);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .footer-content {
+        width: 100%;
+        max-width: 1440px;
+        height: 65px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* background-color: orange; */
+    }
+    .da-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: yellow; */
+        gap: 9px;
+        padding-bottom: 16px;
+        font-size: 16px;
     }
 }
