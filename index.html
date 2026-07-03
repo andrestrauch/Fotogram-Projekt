@@ -16,7 +16,7 @@
         />
     </head>
     <body>
-        <header>
+        <header class="header">
             <section class="header-content">
                 <img src="./assets/icons/favicon.png" alt="Fotogram Logo" />
                 <h2>Fotogram</h2>
@@ -27,16 +27,21 @@
                 <h1>Your personal photo album</h1>
                 <div id="container"></div>
 
-                <dialog>
-                    <header>
-                        <h2></h2>
-                        <button></button>
-                        <p></p>
+                <dialog id="myDialog">
+                    <header class="dialog-header" onclick="endDialog()">
+                        <h2 id="dialogH2"></h2>
+                        <button id="dialogBtn" onclick="endDialog()"></button>
                     </header>
+
+                    <div id="content" onclick="endDialog()"></div>
+
+                    <footer class="dialog-footer" id="dialogFooter">
+                        <div></div>
+                    </footer>
                 </dialog>
             </section>
         </main>
-        <footer>
+        <footer class="footer">
             <section class="footer-content">
                 <div class="da-logo">
                     <img src="./assets/icons/da_logo.png" alt="DA Logo" />
