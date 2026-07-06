@@ -1,16 +1,43 @@
 const boxArray = [
-    { name: "Bild01", link: "./assets/img/bild1.jpg" },
-    { name: "Bild02", link: "./assets/img/bild2.jpg" },
-    { name: "Bild03", link: "./assets/img/bild3.jpg" },
-    { name: "Bild04", link: "./assets/img/bild4.jpg" },
-    { name: "Bild05", link: "./assets/img/bild5.jpg" },
-    { name: "Bild06", link: "./assets/img/bild6.jpg" },
-    { name: "Bild07", link: "./assets/img/bild7.jpg" },
-    { name: "Bild08", link: "./assets/img/bild8.jpg" },
-    { name: "Bild09", link: "./assets/img/bild9.jpg" },
-    { name: "Bild10", link: "./assets/img/bild10.jpg" },
-    { name: "Bild11", link: "./assets/img/bild11.jpg" },
-    { name: "Bild12", link: "./assets/img/bild12.jpg" },
+    {
+        name: "Vereister See mit Bergen",
+        link: "./assets/img/vereister_see_mit_bergen.jpg",
+    },
+    {
+        name: "Regnerische Stadt bei Nacht",
+        link: "./assets/img/regnerische_stadt_bei_nacht.jpg",
+    },
+    {
+        name: "Helle und Dunkle Wolken",
+        link: "./assets/img/helle_und_dunkle_wolken.jpg",
+    },
+    {
+        name: "Vogel auf einem Ast",
+        link: "./assets/img/vogel_auf_einem_ast.jpg",
+    },
+    {
+        name: "Wolken Wirbel von Oben",
+        link: "./assets/img/wolken_wirbel_von_oben.jpg",
+    },
+    { name: "Fluss am Berg", link: "./assets/img/fluss_am_berg.jpg" },
+    { name: "Ente im Wasser", link: "./assets/img/ente_im_wasser.jpg" },
+    {
+        name: "Mensch mit Taschenlampe",
+        link: "./assets/img/mensch_mit_taschenlampe.jpg",
+    },
+    {
+        name: "Vogel auf einem Stein",
+        link: "./assets/img/vogel_auf_einem_stein.jpg",
+    },
+    {
+        name: "Leoparden Jungtiere",
+        link: "./assets/img/leoparden_jungtiere.jpg",
+    },
+    {
+        name: "Verschneite Berglandschaft",
+        link: "./assets/img/verschneite_berglandschaft.jpg",
+    },
+    { name: "Baum im Schnee", link: "./assets/img/baum_im_schnee.jpg" },
 ];
 
 const containerRef = document.getElementById("gallery");
