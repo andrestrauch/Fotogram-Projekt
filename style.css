@@ -6,6 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color: rgba(6, 23, 30, 1);
 }
 .header {
     height: 81px;
@@ -21,62 +22,64 @@ body {
     align-items: center;
 
     .header-content {
-        /* background-color: red; */
         width: 100%;
         max-width: 1440px;
-        height: 41px;
+        height: 42px;
         display: flex;
         justify-content: flex-start;
-        /* justify-content: center; */
         align-items: center;
         gap: 8px;
 
         h2 {
-            font-size: 40px;
+            font-size: clamp(2rem, 1.8571rem + 0.7143vw, 2.5rem);
         }
         img {
-            width: 41px;
-            height: 39px;
+            width: 42px;
+            height: 40px;
+            object-fit: cover;
         }
     }
 }
 main {
     width: 100%;
-    /* height: 100dvh; */
+    height: 100%;
+    min-height: 90svh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     background-color: rgba(6, 23, 30, 1);
 
     .main-content {
         width: 100%;
         max-width: 1440px;
-        height: 100%;
-        /* background-color: yellow; */
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 160px;
+        padding-top: clamp(40px, calc(5.714px + 10.714vw), 160px);
 
         font-family: "Figtree";
         font-style: extabold;
         font-weight: 800;
 
         h1 {
-            font-size: 56px;
-            padding-bottom: 80px;
+            font-size: clamp(2.625rem, 2.375rem + 1.25vw, 3.5rem);
+            padding-bottom: clamp(56px, calc(49.143px + 2.143vw), 80px);
+            text-align: center;
+        }
+        h1:hover {
+            background-color: red;
+            cursor: pointer;
         }
     }
 }
-#container {
+.main-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: calc(8 * 150px);
+    width: 100%;
+    max-width: 1440px;
     gap: 16px;
     .box {
-        /* width: 150px;
-        height: 150px; */
         object-fit: cover;
         border: 2px solid rgba(18, 70, 88, 1);
         border-radius: 16px;
@@ -87,32 +90,54 @@ main {
         img {
             width: 150px;
             height: 150px;
-
             border-radius: 16px;
+            object-fit: cover;
         }
     }
+    margin-bottom: clamp(45px, calc(12.143px + 10.268vw), 160px);
+}
+.main-gallery:hover {
+    background-color: red;
+    cursor: pointer;
 }
 dialog {
-    width: 688px;
-    height: 674px;
+    /* opacity: 0; */
+    transition: all 200ms ease-in-out;
+    /* transform: translateX(0px) translateY(0px); */
+}
+dialog.opened {
+    border: 2px solid black;
+    border-radius: 40px;
+    color: white;
+    width: 95%;
+    max-width: 690px;
+    height: fit-content;
+
+    padding: clamp(2rem, calc(1.571rem + 2.143vw), 3.5rem)
+        clamp(1.313rem, calc(0.545rem + 3.839vw), 4rem);
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: rgba(9, 33, 42, 1);
-    padding: 56px 64px;
     gap: 48px;
 
-    opacity: 0;
-    transition: all 450ms ease-in-out;
-    transform: translateX(0px) translateY(80px);
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     .dialog-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        height: 29px;
+        height: 32px;
 
         font-family: "Figtree";
         font-style: bold;
@@ -120,7 +145,7 @@ dialog {
         line-height: 100%;
 
         h2 {
-            font-size: 24px;
+            font-size: 1.5rem;
         }
 
         button {
@@ -133,25 +158,20 @@ dialog {
             img {
                 width: 13px;
                 height: 13px;
+                object-fit: cover;
             }
         }
     }
-    #content {
+    .content-dialog {
         width: 100%;
         img {
             width: 100%;
-            height: 374px;
+            height: 375px;
+            border-radius: 40px;
+            object-fit: cover;
+            border: 2px solid black;
         }
     }
-}
-dialog.opened {
-    border: 2px solid black;
-    border-radius: 40px;
-    color: white;
-
-    opacity: 1;
-    transition: all 450ms ease-in-out;
-    transform: translateX(450px) translateY(80px);
 }
 .dialog-footer {
     width: 100%;
@@ -174,6 +194,7 @@ dialog.opened {
             img {
                 width: 60px;
                 height: 60px;
+                object-fit: cover;
             }
         }
 
@@ -182,16 +203,14 @@ dialog.opened {
             font-style: normal;
             font-weight: 500;
             line-height: 100%;
-            font-size: 16px;
+            font-size: 1rem;
         }
     }
 }
 .footer {
-    /* position: absolute; */
-    bottom: o;
-
     height: 128px;
     width: 100%;
+    bottom: 0;
 
     background-color: rgba(9, 33, 42, 1);
     color: white;
@@ -201,23 +220,65 @@ dialog.opened {
     justify-content: center;
     align-items: center;
 
+    clip-path: Ellipse(90% 100% at 50% 100%);
+
     .footer-content {
         width: 100%;
         max-width: 1440px;
-        height: 65px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* background-color: orange; */
+        .da-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 16px;
+            font-size: 1rem;
+            width: 225px;
+        }
+        img {
+            width: fit-content;
+        }
+        p {
+            font-size: 0.823rem;
+            font-family: "Figtree";
+            font-style: normal;
+            font-weight: 400;
+            line-height: 100%;
+        }
     }
-    .da-logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* background-color: yellow; */
-        gap: 9px;
-        padding-bottom: 16px;
-        font-size: 16px;
+}
+
+@media screen and (max-width: 1440px) {
+    .main-content {
+        padding: 0 16px;
+    }
+    .header-content {
+        padding: 0 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        .header-content {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    dialog.opened {
+        .dialog-header {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 42px;
+            h2 {
+                text-align: left;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+        }
     }
 }

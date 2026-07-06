@@ -25,7 +25,7 @@
         <main>
             <section class="main-content">
                 <h1>Your personal photo album</h1>
-                <div id="container"></div>
+                <div class="main-gallery" id="gallery"></div>
 
                 <dialog id="myDialog">
                     <header class="dialog-header" onclick="endDialog()">
@@ -33,7 +33,11 @@
                         <button id="dialogBtn" onclick="endDialog()"></button>
                     </header>
 
-                    <div id="content" onclick="endDialog()"></div>
+                    <div
+                        class="content-dialog"
+                        id="dialogContent"
+                        onclick="endDialog()"
+                    ></div>
 
                     <footer class="dialog-footer" id="dialogFooter">
                         <div></div>
@@ -44,13 +48,12 @@
         <footer class="footer">
             <section class="footer-content">
                 <div class="da-logo">
-                    <img src="./assets/icons/da_logo.png" alt="DA Logo" />
-                    <h3>
-                        Developer <br />
-                        Akademie
-                    </h3>
+                    <img
+                        src="./assets/icons/footer_logo.png"
+                        alt="Developer Akademie Logo"
+                    />
                 </div>
-                <img src="./assets/icons/2023_da.png" alt="Copyright 2023" />
+                <p>&copy; 2023 Developer Akademie GmbH</p>
             </section>
         </footer>
     </body>

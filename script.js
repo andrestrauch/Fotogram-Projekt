@@ -13,7 +13,7 @@ const boxArray = [
     { name: "Bild12", link: "./assets/img/bild12.jpg" },
 ];
 
-const containerRef = document.getElementById("container");
+const containerRef = document.getElementById("gallery");
 
 // rendern der boxen
 function renderBoxes() {
@@ -47,7 +47,7 @@ function startDialog(index) {
             </button>
         `;
 
-    const contentRef = document.getElementById(`content`);
+    const contentRef = document.getElementById(`dialogContent`);
     contentRef.innerHTML = "";
     contentRef.innerHTML += /*html*/ `
             <div>
