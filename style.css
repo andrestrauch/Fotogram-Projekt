@@ -66,10 +66,6 @@ main {
             padding-bottom: clamp(56px, calc(49.143px + 2.143vw), 80px);
             text-align: center;
         }
-        h1:hover {
-            background-color: red;
-            cursor: pointer;
-        }
     }
 }
 .main-gallery {
@@ -94,23 +90,26 @@ main {
             object-fit: cover;
         }
     }
+    .box:hover {
+        img {
+            border: 8px solid white;
+        }
+        cursor: pointer;
+    }
     margin-bottom: clamp(45px, calc(12.143px + 10.268vw), 160px);
 }
-.main-gallery:hover {
-    background-color: red;
-    cursor: pointer;
-}
+
 dialog {
-    /* opacity: 0; */
+    opacity: 0;
     transition: all 200ms ease-in-out;
-    /* transform: translateX(0px) translateY(0px); */
+    transform: translateX(0px) translateY(0px);
 }
 dialog.opened {
     border: 2px solid black;
     border-radius: 40px;
     color: white;
     width: 95%;
-    max-width: 690px;
+    max-width: 700px;
     height: fit-content;
 
     padding: clamp(2rem, calc(1.571rem + 2.143vw), 3.5rem)
@@ -160,6 +159,9 @@ dialog.opened {
                 height: 13px;
                 object-fit: cover;
             }
+            img:hover {
+                cursor: pointer;
+            }
         }
     }
     .content-dialog {
@@ -169,43 +171,49 @@ dialog.opened {
             height: 375px;
             border-radius: 40px;
             object-fit: cover;
-            border: 2px solid black;
+            border: 3px solid black;
+        }
+    }
+    .dialog-footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .content-footer {
+            display: flex;
+            width: 261px;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                background-color: rgba(9, 33, 42, 1);
+                border-radius: 50%;
+                border: none;
+                img {
+                    width: 60px;
+                    height: 60px;
+                    object-fit: cover;
+                }
+                img:hover {
+                    cursor: pointer;
+                }
+            }
+
+            p {
+                font-family: "Figtree";
+                font-style: normal;
+                font-weight: 500;
+                line-height: 100%;
+                font-size: 1rem;
+            }
         }
     }
 }
-.dialog-footer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .content-footer {
-        display: flex;
-        width: 261px;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        button {
-            background-color: rgba(9, 33, 42, 1);
-            border-radius: 50%;
-            border: none;
-            img {
-                width: 60px;
-                height: 60px;
-                object-fit: cover;
-            }
-        }
-
-        p {
-            font-family: "Figtree";
-            font-style: normal;
-            font-weight: 500;
-            line-height: 100%;
-            font-size: 1rem;
-        }
-    }
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 .footer {
     height: 128px;

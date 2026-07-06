@@ -27,8 +27,8 @@ function renderBoxes() {
     }
 }
 renderBoxes();
-const dialogRef = document.getElementById(`myDialog`);
 
+const dialogRef = document.getElementById(`myDialog`);
 function startDialog(index) {
     dialogRef.showModal();
     dialogRef.classList.add(`opened`);
@@ -68,6 +68,20 @@ function startDialog(index) {
                 </button>
             </div>
         `;
+
+    // Modal schließen, wenn ESC gedrückt wird
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            endDialog();
+        }
+    });
+
+    // Dialog beim klicken auf den Hintergrund schließen
+    dialogRef.addEventListener("click", (event) => {
+        if (event.target === dialogRef) {
+            endDialog();
+        }
+    });
 }
 function imgLeft(i) {
     if (i == 0) {
