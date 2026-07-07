@@ -5,13 +5,11 @@ function templateBoxen(i) {
             </div>
         `;
 }
-
 function templateDialogH2(index) {
     return /*html*/ `
             <h2>${boxArray[index].name}</h2>
         `;
 }
-
 function templateDialogBtn() {
     return /*html*/ `
             <button>
