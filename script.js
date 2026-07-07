@@ -42,11 +42,12 @@ const boxArray = [
 
 const containerRef = document.getElementById("gallery");
 // rendern der boxen
-function renderBoxes() {
+function renderBoxes(event) {
     containerRef.innerHTML = "";
     for (let i = 0; i < boxArray.length; i++) {
         containerRef.innerHTML += templateBoxen(i);
     }
+    event.stopPropagation();
 }
 
 const dialogRef = document.getElementById(`myDialog`);
@@ -73,13 +74,28 @@ function startDialog(index) {
     // Modal schließen, wenn ESC gedrückt wird
     document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-            endDialog();
+            endDialog(event);
         }
     });
     // Dialog beim klicken auf den Hintergrund schließen
+    // dialogRef.addEventListener("click", (event) => {
+    //     if (event.target === dialogRef) {
+    //         endDialog();
+    //     }
+    // });
+
+    //Dialog schließen beim Hintergrund Klick V2
     dialogRef.addEventListener("click", (event) => {
-        if (event.target === dialogRef) {
-            endDialog();
+        const rect = dialogRef.getBoundingClientRect();
+        // Prüft, ob der Klick außerhalb der Dialog-Box stattfand
+        const isInDialog =
+            event.clientX >= rect.left &&
+            event.clientX <= rect.right &&
+            event.clientY >= rect.top &&
+            event.clientY <= rect.bottom;
+
+        if (!isInDialog) {
+            endDialog(event);
         }
     });
 }
@@ -90,7 +106,7 @@ function imgLeft(i) {
     } else {
         i--;
     }
-    endDialog();
+    endDialog(event);
     startDialog(i);
 }
 function imgRight(i) {
@@ -99,10 +115,11 @@ function imgRight(i) {
     } else {
         i++;
     }
-    endDialog();
+    endDialog(event);
     startDialog(i);
 }
-function endDialog() {
+function endDialog(event) {
     dialogRef.close();
     dialogRef.classList.remove(`opened`);
+    event.stopPropagation();
 }

@@ -16,7 +16,7 @@
             href="./assets/icons/favicon.png"
         />
     </head>
-    <body onload="renderBoxes()">
+    <body onload="renderBoxes(event)">
         <header class="header">
             <section class="header-content">
                 <img src="./assets/icons/favicon.png" alt="Fotogram Logo" />
@@ -31,7 +31,10 @@
                 <dialog id="myDialog">
                     <header class="dialog-header">
                         <h2 id="dialogH2"></h2>
-                        <button id="dialogBtn" onclick="endDialog()"></button>
+                        <button
+                            id="dialogBtn"
+                            onclick="endDialog(event)"
+                        ></button>
                     </header>
 
                     <div class="content-dialog" id="dialogContent"></div>
