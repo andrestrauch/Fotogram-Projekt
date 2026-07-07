@@ -41,19 +41,13 @@ const boxArray = [
 ];
 
 const containerRef = document.getElementById("gallery");
-
 // rendern der boxen
 function renderBoxes() {
     containerRef.innerHTML = "";
     for (let i = 0; i < boxArray.length; i++) {
-        containerRef.innerHTML += /*html*/ `
-            <div class="box" id="box${i}" onclick="startDialog(${i})">
-            <img src="${boxArray[i].link}" alt="${boxArray[i].name}" />
-            </div>
-        `;
+        containerRef.innerHTML += templateBoxen(i);
     }
 }
-renderBoxes();
 
 const dialogRef = document.getElementById(`myDialog`);
 function startDialog(index) {
@@ -62,39 +56,19 @@ function startDialog(index) {
 
     const h2Ref = document.getElementById(`dialogH2`);
     h2Ref.innerHTML = "";
-    h2Ref.innerHTML += /*html*/ `
-            <h2>${boxArray[index].name}</h2>
-        `;
+    h2Ref.innerHTML += templateDialogH2(index);
 
     const btnRef = document.getElementById(`dialogBtn`);
     btnRef.innerHTML = "";
-    btnRef.innerHTML += /*html*/ `
-            <button>
-                <img src="./assets/icons/close.png" alt="Schließen" />
-            </button>
-        `;
+    btnRef.innerHTML += templateDialogBtn();
 
     const contentRef = document.getElementById(`dialogContent`);
     contentRef.innerHTML = "";
-    contentRef.innerHTML += /*html*/ `
-            <div>
-                <img src="${boxArray[index].link}" alt="${boxArray[index].name}" />
-            </div>
-        `;
+    contentRef.innerHTML += templateDialogContent(index);
 
     const footerRef = document.getElementById(`dialogFooter`);
     footerRef.innerHTML = "";
-    footerRef.innerHTML += /*html*/ `
-            <div class="content-footer">
-                <button onclick="imgLeft(${index})">
-                    <img src="./assets/icons/arrow_left.png" alt="Pfeil nach Links" />
-                </button>
-                <p>${index + 1}/${boxArray.length}</p>
-                <button onclick="imgRight(${index})">
-                    <img src="./assets/icons/arrow_right.png" alt="Pfeil nach Rechts" />
-                </button>
-            </div>
-        `;
+    footerRef.innerHTML += templateDialogFooter(index);
 
     // Modal schließen, wenn ESC gedrückt wird
     document.addEventListener("keydown", function (event) {
@@ -102,7 +76,6 @@ function startDialog(index) {
             endDialog();
         }
     });
-
     // Dialog beim klicken auf den Hintergrund schließen
     dialogRef.addEventListener("click", (event) => {
         if (event.target === dialogRef) {

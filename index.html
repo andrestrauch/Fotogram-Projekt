@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./styles/fonts.css" />
         <link rel="stylesheet" href="./styles/standard.css" />
         <link rel="stylesheet" href="style.css" />
+        <script src="Template.js" defer></script>
         <script src="script.js" defer></script>
 
         <link
@@ -15,7 +16,7 @@
             href="./assets/icons/favicon.png"
         />
     </head>
-    <body>
+    <body onload="renderBoxes()">
         <header class="header">
             <section class="header-content">
                 <img src="./assets/icons/favicon.png" alt="Fotogram Logo" />
@@ -28,16 +29,12 @@
                 <div class="main-gallery" id="gallery"></div>
 
                 <dialog id="myDialog">
-                    <header class="dialog-header" onclick="endDialog()">
+                    <header class="dialog-header">
                         <h2 id="dialogH2"></h2>
                         <button id="dialogBtn" onclick="endDialog()"></button>
                     </header>
 
-                    <div
-                        class="content-dialog"
-                        id="dialogContent"
-                        onclick="endDialog()"
-                    ></div>
+                    <div class="content-dialog" id="dialogContent"></div>
 
                     <footer class="dialog-footer" id="dialogFooter">
                         <div></div>
