@@ -1,11 +1,15 @@
 function templateBoxen(i) {
     return /*html*/ `
-            <div class="box" id="box${i}" onclick="startDialog(${i})">
+            <button
+            aria-haspopup="dialog" 
+            aria-controls="myDialog"
+            class="box" id="box${i}" 
+            onclick="startDialog(${i})">
             <img src="${boxArray[i].link}" alt="${boxArray[i].name}" />
-            </div>
+            </button>
         `;
 }
-function templateDialogH2(index) {
+function templateDialogTitle(index) {
     return /*html*/ `
             <h2>${boxArray[index].name}</h2>
         `;

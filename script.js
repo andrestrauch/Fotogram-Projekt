@@ -48,6 +48,7 @@ function renderBoxes(event) {
         containerRef.innerHTML += templateBoxen(i);
     }
     event.stopPropagation();
+    setFocusOnTop();
 }
 
 const dialogRef = document.getElementById(`myDialog`);
@@ -55,9 +56,9 @@ function startDialog(index) {
     dialogRef.showModal();
     dialogRef.classList.add(`opened`);
 
-    const h2Ref = document.getElementById(`dialogH2`);
+    const h2Ref = document.getElementById(`dialogTitle`);
     h2Ref.innerHTML = "";
-    h2Ref.innerHTML += templateDialogH2(index);
+    h2Ref.innerHTML += templateDialogTitle(index);
 
     const btnRef = document.getElementById(`dialogBtn`);
     btnRef.innerHTML = "";
@@ -71,12 +72,13 @@ function startDialog(index) {
     footerRef.innerHTML = "";
     footerRef.innerHTML += templateDialogFooter(index);
 
-    // Modal schließen, wenn ESC gedrückt wird
-    // document.addEventListener("keydown", function (event) {
-    //     if (event.key === "Escape") {
-    //         endDialog(event);
-    //     }
-    // });
+    //  Modal schließen, wenn ESC gedrückt wird
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            endDialog(event);
+        }
+    });
+
     // Dialog beim klicken auf den Hintergrund schließen
     // dialogRef.addEventListener("click", (event) => {
     //     if (event.target === dialogRef) {
@@ -122,4 +124,9 @@ function endDialog(event) {
     dialogRef.close();
     dialogRef.classList.remove(`opened`);
     event.stopPropagation();
+}
+
+function setFocusOnTop() {
+    const elemRef = document.getElementById(`headline`);
+    elemRef.focus();
 }

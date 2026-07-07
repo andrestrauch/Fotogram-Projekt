@@ -25,19 +25,22 @@
         </header>
         <main>
             <section class="main-content">
-                <h1>Your personal photo album</h1>
+                <h1 id="headline" tabindex="-1">Your personal photo album</h1>
                 <div class="main-gallery" id="gallery"></div>
 
-                <dialog id="myDialog">
+                <dialog id="myDialog" aria-labelledby="dialogTitle">
                     <header class="dialog-header">
-                        <h2 id="dialogH2"></h2>
+                        <h2 id="dialogTitle"></h2>
                         <button
+                            aria-label="Dialog schließen"
                             id="dialogBtn"
                             onclick="endDialog(event)"
                         ></button>
                     </header>
 
-                    <div class="content-dialog" id="dialogContent"></div>
+                    <section class="content-dialog">
+                        <div id="dialogContent"></div>
+                    </section>
 
                     <footer class="dialog-footer" id="dialogFooter">
                         <div></div>

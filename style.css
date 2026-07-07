@@ -90,10 +90,8 @@ main {
             object-fit: cover;
         }
     }
-    .box:hover {
-        img {
-            border: 2px solid rgba(107, 193, 225, 1);
-        }
+    button:hover {
+        border: 2px solid rgba(107, 193, 225, 1);
         cursor: pointer;
     }
     margin-bottom: clamp(45px, calc(12.143px + 10.268vw), 160px);
