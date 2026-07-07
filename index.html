@@ -17,20 +17,24 @@
         />
     </head>
     <body onload="renderBoxes(event)">
-        <header class="header">
+        <header aria-label="Kopfzeile mit Fotogramlogo" class="header">
             <section class="header-content">
                 <img src="./assets/icons/favicon.png" alt="Fotogram Logo" />
                 <h2>Fotogram</h2>
             </section>
         </header>
         <main>
-            <section class="main-content">
-                <h1 id="headline" tabindex="-1">Your personal photo album</h1>
+            <section aria-labelledby="mainTitle" class="main-content">
+                <h1 id="mainTitle">Your personal photo album</h1>
                 <div class="main-gallery" id="gallery"></div>
 
                 <dialog id="myDialog" aria-labelledby="dialogTitle">
                     <header class="dialog-header">
-                        <h2 id="dialogTitle"></h2>
+                        <h2
+                            aria-label="Bild Name"
+                            tabindex="-1"
+                            id="dialogTitle"
+                        ></h2>
                         <button
                             aria-label="Dialog schließen"
                             id="dialogBtn"

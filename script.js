@@ -127,6 +127,6 @@ function endDialog(event) {
 }
 
 function setFocusOnTop() {
-    const elemRef = document.getElementById(`headline`);
+    const elemRef = document.getElementById(`dialogTitle`);
     elemRef.focus();
 }
