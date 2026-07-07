@@ -58,7 +58,6 @@ main {
         padding-top: clamp(40px, calc(5.714px + 10.714vw), 160px);
 
         font-family: "Figtree";
-        font-style: extabold;
         font-weight: 800;
 
         h1 {
@@ -92,7 +91,7 @@ main {
     }
     .box:hover {
         img {
-            border: 8px solid white;
+            border: 2px solid rgba(107, 193, 225, 1);
         }
         cursor: pointer;
     }
@@ -143,20 +142,18 @@ dialog.opened {
         }
 
         button {
+            width: 24px;
+            height: 24px;
             object-fit: cover;
-            background-color: rgba(9, 33, 42, 1);
+            background-color: rgba(6, 23, 30, 1);
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 50%;
-            img {
-                width: 13px;
-                height: 13px;
-                object-fit: cover;
-            }
-            img:hover {
-                cursor: pointer;
-            }
+        }
+        button:hover {
+            background-color: rgba(18, 70, 88, 1);
+            cursor: pointer;
         }
     }
     .content-dialog {
@@ -184,19 +181,21 @@ dialog.opened {
             align-items: center;
 
             button {
-                background-color: rgba(9, 33, 42, 1);
+                background-color: rgba(253, 91, 79, 0.1);
                 border-radius: 50%;
                 border: none;
+                width: 60px;
+                height: 60px;
                 img {
-                    width: 60px;
-                    height: 60px;
+                    width: 22px;
+                    height: 19px;
                     object-fit: cover;
                 }
-                img:hover {
-                    cursor: pointer;
-                }
             }
-
+            button:hover {
+                background-color: rgba(253, 91, 79, 0.2);
+                cursor: pointer;
+            }
             p {
                 font-family: "Figtree";
                 font-style: normal;
