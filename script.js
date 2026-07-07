@@ -72,11 +72,11 @@ function startDialog(index) {
     footerRef.innerHTML += templateDialogFooter(index);
 
     // Modal schließen, wenn ESC gedrückt wird
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            endDialog(event);
-        }
-    });
+    // document.addEventListener("keydown", function (event) {
+    //     if (event.key === "Escape") {
+    //         endDialog(event);
+    //     }
+    // });
     // Dialog beim klicken auf den Hintergrund schließen
     // dialogRef.addEventListener("click", (event) => {
     //     if (event.target === dialogRef) {
