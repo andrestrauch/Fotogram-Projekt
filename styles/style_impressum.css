@@ -3,9 +3,6 @@
         text-decoration: none;
         color: white;
     }
-    h2:hover {
-        text-decoration: underline;
-    }
 }
 body {
     width: 100%;
