@@ -19,8 +19,14 @@ const boxArray = [
         name: "Wolken Wirbel von Oben",
         link: "./assets/img/wolken_wirbel_von_oben.jpg",
     },
-    { name: "Fluss am Berg", link: "./assets/img/fluss_am_berg.jpg" },
-    { name: "Ente im Wasser", link: "./assets/img/ente_im_wasser.jpg" },
+    {
+        name: "Fluss am Berg",
+        link: "./assets/img/fluss_am_berg.jpg",
+    },
+    {
+        name: "Ente im Wasser",
+        link: "./assets/img/ente_im_wasser.jpg",
+    },
     {
         name: "Mensch mit Taschenlampe",
         link: "./assets/img/mensch_mit_taschenlampe.jpg",
@@ -37,11 +43,15 @@ const boxArray = [
         name: "Verschneite Berglandschaft",
         link: "./assets/img/verschneite_berglandschaft.jpg",
     },
-    { name: "Baum im Schnee", link: "./assets/img/baum_im_schnee.jpg" },
+    {
+        name: "Baum im Schnee",
+        link: "./assets/img/baum_im_schnee.jpg",
+    },
 ];
 
 const containerRef = document.getElementById("gallery");
-// rendern der boxen
+const dialogRef = document.getElementById(`myDialog`);
+
 function renderBoxes(event) {
     containerRef.innerHTML = "";
     for (let i = 0; i < boxArray.length; i++) {
@@ -51,66 +61,27 @@ function renderBoxes(event) {
     setFocusOnTop();
 }
 
-const dialogRef = document.getElementById(`myDialog`);
 function startDialog(index) {
     dialogRef.showModal();
     dialogRef.classList.add(`opened`);
 
-    const h2Ref = document.getElementById(`dialogTitle`);
-    h2Ref.innerHTML = "";
-    h2Ref.innerHTML += templateDialogTitle(index);
-
-    const btnRef = document.getElementById(`dialogBtn`);
-    btnRef.innerHTML = "";
-    btnRef.innerHTML += templateDialogBtn();
-
-    const contentRef = document.getElementById(`dialogContent`);
-    contentRef.innerHTML = "";
-    contentRef.innerHTML += templateDialogContent(index);
-
-    const footerRef = document.getElementById(`dialogFooter`);
-    footerRef.innerHTML = "";
-    footerRef.innerHTML += templateDialogFooter(index);
-
-    //  Modal schließen, wenn ESC gedrückt wird
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            endDialog(event);
-        }
-    });
-
-    // Dialog beim klicken auf den Hintergrund schließen
-    // dialogRef.addEventListener("click", (event) => {
-    //     if (event.target === dialogRef) {
-    //         endDialog();
-    //     }
-    // });
-
-    //Dialog schließen beim Hintergrund Klick V2
-    dialogRef.addEventListener("click", (event) => {
-        const rect = dialogRef.getBoundingClientRect();
-        // Prüft, ob der Klick außerhalb der Dialog-Box stattfand
-        const isInDialog =
-            event.clientX >= rect.left &&
-            event.clientX <= rect.right &&
-            event.clientY >= rect.top &&
-            event.clientY <= rect.bottom;
-
-        if (!isInDialog) {
-            endDialog(event);
-        }
-    });
+    templateDialogTitle(index);
+    templateDialogBtn();
+    templateDialogContent(index);
+    templateDialogFooter(index);
+    templateStartEventListener();
 }
+
 function imgLeft(i) {
     if (i == 0) {
         i = boxArray.length - 1;
-        console.log(boxArray.length);
     } else {
         i--;
     }
     endDialog(event);
     startDialog(i);
 }
+
 function imgRight(i) {
     if (i == 11) {
         i = 0;
@@ -120,6 +91,7 @@ function imgRight(i) {
     endDialog(event);
     startDialog(i);
 }
+
 function endDialog(event) {
     dialogRef.close();
     dialogRef.classList.remove(`opened`);
