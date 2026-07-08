@@ -30,9 +30,7 @@ function templateDialogContent(index) {
     const contentRef = document.getElementById(`dialogContent`);
     contentRef.innerHTML = "";
     contentRef.innerHTML += /*html*/ `
-            <div>
                 <img src="${boxArray[index].link}" alt="${boxArray[index].name}" />
-            </div>
         `;
 }
 
@@ -58,7 +56,6 @@ function templateStartEventListener() {
             endDialog(event);
         }
     });
-
     dialogRef.addEventListener("click", (event) => {
         const rect = dialogRef.getBoundingClientRect();
         const isInDialog =

@@ -111,7 +111,7 @@ dialog.opened {
     color: white;
     width: 95%;
     max-width: 700px;
-    height: fit-content;
+    /* height: 800px; */
 
     padding: clamp(1.25rem, calc(0.714rem + 2.679vw), 3.125rem)
         clamp(0.625rem, calc(-0.089rem + 3.571vw), 3.125rem);
@@ -165,11 +165,17 @@ dialog.opened {
     }
     .content-dialog {
         width: fit-content;
+        max-width: 600px;
+        height: 450px;
+        /* background-color: red; */
         img {
-            width: 100%;
+            width: 95%;
+            max-width: 580px;
             max-height: 600px;
+            height: 100%;
+
             border-radius: 40px;
-            object-fit: contain;
+            /* object-fit: contain; */
             border: 3px solid black;
         }
     }
